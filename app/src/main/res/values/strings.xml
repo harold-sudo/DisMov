@@ -8,4 +8,5 @@
     <string name="error_not_found">No se encontraron resultados</string>
     <string name="error_empty_response">Respuesta vacía</string>
     <string name="error_unknown">Error desconocido</string>
+    <string name="api_key">Api Key</string>
 </resources>
