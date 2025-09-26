@@ -16,12 +16,12 @@ data class DollarEntity(
     @ColumnInfo(name = "dollar_paralelo")
     var dollarParalelo: String? = null,
 
-    @ColumnInfo(name = "dollar_USDT")
+    @ColumnInfo(name = "dollar_usdt") // Corregido: de USDT a usdt
     var dollarUSDT: String? = null,
 
-    @ColumnInfo(name = "dollar_USDC")
+    @ColumnInfo(name = "dollar_usdc") // Corregido: de USDC a usdc
     var dollarUSDC: String? = null,
 
     @ColumnInfo(name = "timestamp")
-    var timestamp: Long = 0)
-
+    var timestamp: Long = 0
+)

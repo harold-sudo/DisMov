@@ -33,7 +33,7 @@ fun ProfileScreen(
         profileViewModel.showProfile()
     }
 
-    when(val st = state.value) {
+    when (val st = state.value) {
         is ProfileViewModel.ProfileUiState.Error -> Text(st.message)
         ProfileViewModel.ProfileUiState.Init -> Text("")
         ProfileViewModel.ProfileUiState.Loading -> CircularProgressIndicator()
@@ -46,32 +46,27 @@ fun ProfileScreen(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 AsyncImage(
-                    model = st.profile.pathUrl,
-                    contentDescription = "Foto de perfil de ${st.profile.name}",
+                    model = st.profile.profilePictureUrl, // Usa el campo correcto del modelo
+                    contentDescription = "Foto de perfil de ${st.profile.username.value}",
                     modifier = Modifier
                         .size(120.dp)
-                        .clip(CircleShape) // Opcional: imagen circular
+                        .clip(CircleShape)
                         .border(2.dp, Color.Gray, CircleShape),
                     contentScale = ContentScale.Crop
                 )
 
                 Text(
-                    text = st.profile.name,
+                    text = st.profile.username.value,
                     style = MaterialTheme.typography.titleMedium
                 )
 
                 Text(
-                    text = st.profile.email,
+                    text = st.profile.email.value,
                     style = MaterialTheme.typography.bodyMedium
                 )
 
-              //  Text(
-                //    text = st.profile.cellphone,
-                  //  style = MaterialTheme.typography.bodyMedium
-                //)
-
                 Text(
-                    text = st.profile.summary,
+                    text = st.profile.summary.toString(),
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier.padding(top = 8.dp),
                     textAlign = TextAlign.Center
@@ -79,6 +74,4 @@ fun ProfileScreen(
             }
         }
     }
-
-
 }
